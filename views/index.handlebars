@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang = "en-us">
-    <head>
-        <meta charset="UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1">
-        <!--BootStrap call in-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!--Incase i get a burger Icon-->
-        <link rel="icon" href="assets/images/#">
-        <title>Burgr</title>
-    </head>
 
-    <body>
-        <!--Test delete everthing out of the two test comments!-->
     <div class = "container">
         <div class = "col-md-4">
             <!--non eaten burgers go here-->
@@ -30,8 +17,29 @@
                 {{/unless}}
             {{/each}}
         </div>
-    </div>
-        <!--Test-->
-    </body>
+        <div class = "col-md-4">
+            <div class = "form-group">
+                <label for="borger"><h2><strong>Burger Input</strong></h2></label>
+                <textarea class="form-control" rows="3" id="comment"></textarea>
+                <button type="button" class="btn btn-outline-success btn-lg">Success</button>
+            </div>
+        </div>
 
-</html>
+        <div class = "col-md-4">
+             <!--non eaten burgers go here-->
+            {{#each burger}}
+                        {{#if this.eaten}}
+                <div class="card" style="width: 18rem;">
+                    <!--If i can make an array with a bunch of different burger urls and randomly add one. Otherwise delete this.-->
+                    
+                    <img class="card-img-top" src="..." alt="Blank burger">
+                    <div class="card-body">
+                      <h5 class="card-title">{{burger.name}}</h5>
+                      
+                      <a href="#" class="btn btn-primary">EAT THE BURGER</a>
+                    </div>
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
