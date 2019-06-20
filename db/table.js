@@ -1,6 +1,6 @@
 //Require the sequelize
 var Sequelize = require("sequelize");
-var sequelize = require("../config/connection.js");
+var sequelize = require("../app/config/connection.js");
 
 //Create Table
 var Burger = sequelize.define("burber", {
@@ -11,4 +11,4 @@ var Burger = sequelize.define("burber", {
 
 Burger.sync();
 
-module.exports = Burger();
+module.exports = Burger;
