@@ -7,11 +7,14 @@ var Burger = require("../db/table.js");
 
 //This is where routes will go.
 
-//Default route, for homepage
+//Default route, for homepage also grabs burger data.
 router.get("/", function(req,res){
     Burger.findAll({}).then(function(results){
         console.log(results);
-        res.json(results);
+        var allBurgers = {
+            burgers : results
+        };
         
     })
+    res.render("index", allBurgers);
 })
