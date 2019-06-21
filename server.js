@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 //Static directory (Not currently in use but i'm sure ill put something there)
-// app.use(express.static('app/public'));
+app.use(express.static('app/public'));
 
 //Express Handlebars Stuff
 var exphb = require("express-handlebars");
