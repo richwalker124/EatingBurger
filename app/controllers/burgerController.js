@@ -4,6 +4,7 @@ var router = express.Router();
 var Sequelize = require("sequelize");
 //import model
 var Burger = require("../../db/table.js");
+var burgerData = require("../public/assets/js/frontendLogic.js");
 
 //This is where routes will go.
 
@@ -20,10 +21,10 @@ router.get("/", function(req,res){
 })
 
 //ADD A BURGER FUNCTION HERE
-router.post("/addburg", function(req,res){
+router.put("/api/addburg", function(req,res){
     //Creates a new burger to add to db
     Burger.create([ "burgerName", "eaten"],
-    [req.body.burgername, "false"],
+    [burgerData, "false"],
     function(result) {
         console.log(result)
         res.json({ id: result.insertId})

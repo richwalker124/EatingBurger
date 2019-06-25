@@ -6,7 +6,10 @@ if(typeof document !== "undefined"){
 document.addEventListener("DOMContentLoaded", function(){
 
 
-var newBurger = "";
+
+var newBurger = {
+  newBurger : ""
+};
 
 document.addEventListener('click', function (event){
      if (!event.target.matches('#addburgClick')) return;
@@ -15,8 +18,15 @@ document.addEventListener('click', function (event){
    event.preventDefault();
 //     //console.log(event.target);
     
-   newBurger = document.getElementById("comment").value.trim();
+   newBurger.newBurger = document.getElementById("comment").value.trim();
   console.log(newBurger);
+  $.ajax("/api/addburg" , {
+    type: "PUT",
+    data: newBurger
+  }).then(function(){ 
+    console.log("SENT NEW BURGER")
+    location.reload();
+  })
     //module.exports = newBurger;
  });
 
