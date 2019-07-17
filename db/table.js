@@ -13,10 +13,13 @@
 
 // module.exports = Burger;
 
-module.exports = function (sequelize, DataTypes){
-    var Burber = sequelize.define("Burger", {
-        burgerName: DataTypes.STRING,
-        eaten: DataTypes.STRING
-    });
-    return Burber;
+module.exports = function(sequelize, DataTypes) {
+  var Burger = sequelize.define("Burger", {
+    burgerName: DataTypes.STRING,
+    eaten: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  });
+  return Burger;
 };

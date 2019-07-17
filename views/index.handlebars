@@ -1,45 +1,65 @@
+<div class="container text-center text-capitalized ">
 
-    <div class = "container">
-        <div class = "col-md-4">
-            <!--non eaten burgers go here-->
-            {{#each burger}}
-                        {{#unless this.eaten}}
+    <div class="jumbotron">
+        <h1>The slightly terrible burger maker</h1>
+        <h4>Sorry the color scheme is so terrible, but atleast everything works</h4>
+    </div>
+    <div class="text-capitalized ">
+        <div class="row">
+            {{!-- This is where the jumbotron is --}}
+
+
+
+            <div class="col-md-4">
+                <!--non eaten burgers go here-->
+                {{#each burger}}
+                {{#if this.eaten}}
                 <div class="card" style="width: 18rem;">
                     <!--If i can make an array with a bunch of different burger urls and randomly add one. Otherwise delete this.-->
-                    
-                    <img class="card-img-top" src="..." alt="Blank burger">
-                    <div class="card-body">
-                      <h5 class="card-title">{{burger.name}}</h5>
-                      
-                      <a href="#" class="btn btn-primary">EAT THE BURGER</a>
-                    </div>
-                </div>
-                {{/unless}}
-            {{/each}}
-        </div>
-        <div class = "col-md-4">
-            <div class = "form-group">
-                <label for="borger"><h2><strong>Burger Input</strong></h2></label>
-                <textarea class="form-control" rows="3" id="comment" name= "burgername"></textarea>
-                <button href = "addburg" type="submit" class="btn btn-outline-success btn-lg"> Success </button>
-            </div>
-        </div>
 
-        <div class = "col-md-4">
-             <!--non eaten burgers go here-->
-            {{#each burger}}
-                        {{#if this.eaten}}
-                <div class="card" style="width: 18rem;">
-                    <!--If i can make an array with a bunch of different burger urls and randomly add one. Otherwise delete this.-->
-                    
-                    <img class="card-img-top" src="..." alt="Blank burger">
+
                     <div class="card-body">
-                      <h5 class="card-title">{{burger.name}}</h5>
-                      
-                      <a href="#" class="btn btn-primary">EAT THE BURGER</a>
+                        <h5 class="card-title text-capitalized">{{this.burgerName}}</h5>
+
+
                     </div>
                 </div>
                 {{/if}}
-            {{/each}}
+                {{/each}}
+            </div>
+
+
+            <div class="col-md-4">
+                <form action="/api/addburg" method="POST">
+                    <label for="borger">
+                        <h2><strong>Burger Input</strong></h2>
+                    </label>
+                    <textarea class="form-control" rows="3" id="comment" name="burgername"></textarea>
+                    <button type="submit" class="btn btn-outline-success btn-lg" id="addburgClick"> Make Burgers
+                    </button>
+                </form>
+            </div>
+
+
+            <div class="col-md-4 text-right">
+                <!--e aten burgers go here-->
+                {{#each burger}}
+                {{#unless this.eaten}}
+                <div class="card" style="width: 18rem;">
+                    <!--If i can make an array with a bunch of d ifferent burger urls and randomly add one. Otherwise delete this.-->
+
+                    <div class="card-body">
+                        <h5 class="card-title text-capitalized">{{this.burgerName}}</h5>
+                        <form action="/api/update/{{this.id}}?_method=PUT" method="PUT">
+                            <button type="submit" class="btn btn-primary">EAT THE BURGER</button>
+                        </form>
+                    </div>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+            <!--This below div ends the row-->
         </div>
+
     </div>
+</div>
