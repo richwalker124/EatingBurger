@@ -26,7 +26,7 @@ var routes = require("./app/controllers/burgerController.js");
 
 app.use(routes);
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 //Server listen! (starts the server)
 db.sequelize.sync(syncOptions).then(function() {
