@@ -1,8 +1,8 @@
-TODO:
-1. Develop front end, make it look (ok).
-2.Use Jquery to dynamically generate buttons/burger boxes, but create an example in the html.
-3.Add functionality to back end, so the data can properly be transferred. (not really a step so much as it is a move from front end to back end)
-4.Create Database.
-5.Find out whats needed for ORM, do that next.
-6.Add routing logic (unless this needs to be done earlier)
-7.
+# Burger App
+This app takes in burgers that users enter and uses express handlebars and sequelize to display and "eat" them.
+
+##Installation 
+Download the repository and run "npm i" in gitbash to install needed files. Then go to localhost:8080.
+
+##Technologies used
+Sequelize, Express, Express-handlebars, Bootstrap
